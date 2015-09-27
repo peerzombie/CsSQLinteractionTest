@@ -12,6 +12,8 @@ namespace SQLDB_Test
 
         private void main_Load(object sender, EventArgs e)
         {
+            SqlGateway sqlGateway = new SqlGateway();
+            sqlGateway.getSqlData();
         }
     }
 }

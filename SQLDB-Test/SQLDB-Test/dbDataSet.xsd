@@ -85,7 +85,7 @@ SELECT Id, Name, guid, hash, created, lastlogin FROM mtbl WHERE (Id = @Id)</Comm
   <xs:element name="dbDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="dbDataSet" msprop:Generator_UserDSName="dbDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="mtbl" msprop:Generator_TableClassName="mtblDataTable" msprop:Generator_TableVarName="tablemtbl" msprop:Generator_TablePropName="mtbl" msprop:Generator_RowDeletingName="mtblRowDeleting" msprop:Generator_RowChangingName="mtblRowChanging" msprop:Generator_RowEvHandlerName="mtblRowChangeEventHandler" msprop:Generator_RowDeletedName="mtblRowDeleted" msprop:Generator_UserTableName="mtbl" msprop:Generator_RowChangedName="mtblRowChanged" msprop:Generator_RowEvArgName="mtblRowChangeEvent" msprop:Generator_RowClassName="mtblRow">
+        <xs:element name="mtbl" msprop:Generator_TableClassName="mtblDataTable" msprop:Generator_TableVarName="tablemtbl" msprop:Generator_RowChangedName="mtblRowChanged" msprop:Generator_TablePropName="mtbl" msprop:Generator_RowDeletingName="mtblRowDeleting" msprop:Generator_RowChangingName="mtblRowChanging" msprop:Generator_RowEvHandlerName="mtblRowChangeEventHandler" msprop:Generator_RowDeletedName="mtblRowDeleted" msprop:Generator_RowClassName="mtblRow" msprop:Generator_UserTableName="mtbl" msprop:Generator_RowEvArgName="mtblRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
