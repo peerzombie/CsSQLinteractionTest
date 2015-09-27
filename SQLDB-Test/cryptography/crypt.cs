@@ -1,10 +1,16 @@
 ﻿using System;
 using System.Security.Cryptography;
+using cryptography;
 
-namespace SQLDB_Test
+namespace cryptography
 {
     public class crypt
     {
+        public crypt(int it)
+        {
+            value = it;
+        }
+        public static int value { get; private set; }
         public string getPwhash(string pw = "NaN")
         {
             var cr = new Cryptodata();
@@ -23,12 +29,13 @@ internal class Cryptodata
     private const int SaltByteLength = 24;
     private const int DerivedKeyLength = 24;
 
+
     private static bool ConstantTimeComparison(byte[] passwordGuess, byte[] actualPassword)
     {
-        var difference = (uint) passwordGuess.Length ^ (uint) actualPassword.Length;
+        var difference = (uint)passwordGuess.Length ^ (uint)actualPassword.Length;
         for (var i = 0; i < passwordGuess.Length && i < actualPassword.Length; i++)
         {
-            difference |= (uint) (passwordGuess[i] ^ actualPassword[i]);
+            difference |= (uint)(passwordGuess[i] ^ actualPassword[i]);
         }
 
         return difference == 0;
@@ -92,13 +99,6 @@ internal class Cryptodata
 
     private int GetIterationCount()
     {
-        return 00001;
+        return crypt.value;
     }
 }
-
-/*
-//EXAMPLES !
-System.String Hashed = System.BitConverter.ToString(((System.Security.Cryptography.SHA512)new System.Security.Cryptography.SHA512Managed()).ComputeHash(System.Text.Encoding.ASCII.GetBytes("NotHashedPass"))).Replace("-","");
-
-MessageBox.Show(Hashed);
-    */
