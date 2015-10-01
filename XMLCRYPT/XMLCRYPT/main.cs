@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,12 @@ namespace XMLCRYPT
 
         private void main_Load(object sender, EventArgs e)
         {
-
+            XmlGateway xgate = new XmlGateway("data/data.xml");
+            if (!Directory.Exists("data"))
+            {
+                Directory.CreateDirectory("data");
+                xgate.CreateRoot();
+            }
         }
     }
 }
