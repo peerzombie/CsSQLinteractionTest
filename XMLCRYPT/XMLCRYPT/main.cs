@@ -29,7 +29,14 @@ namespace XMLCRYPT
         {
             if (textbox_username.Text.Length > 0 && textbox_password.Text.Length > 7)
             {
-
+                Random subrandom = new Random();
+                int time = subrandom.Next();
+                Random r = new Random(time);
+                int random = r.Next(1000, 500000);
+                crypt a = new crypt(500000);
+                string hash = a.getPwhash(textbox_password.Text);
+                XmlGateway gate = new XmlGateway(gateKey);
+                gate.AddUsr(textbox_username.Text, hash, random, DateTime.Now);
             }
             else
             {

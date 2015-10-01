@@ -8,7 +8,7 @@ namespace cryptography
     {
         public crypt(int it)
         {
-            value = it;
+            value = it / 8;
         }
         public static int value { get; private set; }
         public string getPwhash(string pw = "NaN")

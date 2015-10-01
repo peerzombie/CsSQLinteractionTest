@@ -27,7 +27,7 @@ namespace XMLCRYPT
             xdoc.Save(_filepath);
         }
 
-        public void AddUsr(string name, string hash, int inc, DateTime created)
+        public void AddUsr(string name, string hash, int inc, long created)
         {
             XmlDocument xdoc = new XmlDocument();
             if (!File.Exists(_filepath)) throw new FileNotFoundException();
@@ -56,6 +56,11 @@ namespace XMLCRYPT
                 MessageBox.Show("FATAL ERROR\nMALEFORMED XML DATA FILE\nABORTING !\nErrorCode: XML-Datacode-0001",
                     "FATAL ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        public void AddUsr(string name, string hash, int inc, DateTime created)
+        {
+            AddUsr(name, hash, inc, created.Ticks);
         }
 
         public string[] getUserList()
