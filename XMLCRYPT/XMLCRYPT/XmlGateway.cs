@@ -1,5 +1,6 @@
 ﻿using System;
 using System.CodeDom;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
@@ -55,6 +56,21 @@ namespace XMLCRYPT
                 MessageBox.Show("FATAL ERROR\nMALEFORMED XML DATA FILE\nABORTING !\nErrorCode: XML-Datacode-0001",
                     "FATAL ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        public string[] getUserList()
+        {
+            XmlDocument xdoc = new XmlDocument();
+            List<string> list = new List<string>();
+            xdoc.Load(_filepath);
+            XmlNodeList nodeList1 = xdoc.SelectNodes("root/user");
+            XmlNode subNode;
+            foreach (XmlNode node in nodeList1)
+            {
+                subNode = node.SelectSingleNode("name");
+                list.Add(subNode.InnerText);
+            }
+            return list.ToArray();
         }
     }
 }
