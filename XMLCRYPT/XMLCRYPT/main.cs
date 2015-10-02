@@ -17,6 +17,8 @@ namespace XMLCRYPT
 
         private void main_Load(object sender, EventArgs e)
         {
+            SettingsPrompt d = new SettingsPrompt();
+            d.ShowDialog();
             XmlGateway xgate = new XmlGateway(gateKey);
             if (!Directory.Exists(gatePath))
             {
