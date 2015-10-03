@@ -63,7 +63,7 @@ namespace XMLCRYPT
             AddUsr(name, hash, inc, created.Ticks);
         }
 
-        public string[] getUserList()
+        public string[] GetUserList()
         {
             XmlDocument xdoc = new XmlDocument();
             List<string> list = new List<string>();

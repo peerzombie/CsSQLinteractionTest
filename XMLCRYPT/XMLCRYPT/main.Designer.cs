@@ -1,6 +1,6 @@
 ﻿namespace XMLCRYPT
 {
-    partial class main
+    partial class Main
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -146,7 +146,7 @@
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.box_loadUser);
             this.Controls.Add(this.mbox);
-            this.Name = "main";
+            this.Name = "Main";
             this.Text = "Add User";
             this.Load += new System.EventHandler(this.main_Load);
             this.mbox.ResumeLayout(false);

@@ -4,20 +4,20 @@ using cryptography;
 
 namespace cryptography
 {
-    public class crypt
+    public class Crypt
     {
-        public crypt(int it)
+        public Crypt(int it)
         {
-            value = it / 8;
+            Value = it;
         }
-        public static int value { get; private set; }
-        public string getPwhash(string pw = "NaN")
+        public static int Value { get; private set; }
+        public string GetPwhash(string pw = "NaN")
         {
             var cr = new Cryptodata();
             return cr.CreatePasswordHash(pw);
         }
 
-        public bool verifyPW(string pw, string storedHash)
+        public bool VerifyPw(string pw, string storedHash)
         {
             return Cryptodata.VerifyPassword(pw, storedHash);
         }
@@ -99,6 +99,6 @@ internal class Cryptodata
 
     private int GetIterationCount()
     {
-        return crypt.value;
+        return Crypt.Value;
     }
 }

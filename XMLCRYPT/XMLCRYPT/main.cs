@@ -5,12 +5,12 @@ using cryptography;
 
 namespace XMLCRYPT
 {
-    public partial class main : Form
+    public partial class Main : Form
     {
-        private int r = 0;
-        private string gateKey = "../../data/data.xml";
-        private string gatePath = "../../data";
-        public main()
+        private int _r = 0;
+        private string _gateKey = "../../data/data.xml";
+        private string _gatePath = "../../data";
+        public Main()
         {
             InitializeComponent();
         }
@@ -19,10 +19,10 @@ namespace XMLCRYPT
         {
             SettingsPrompt d = new SettingsPrompt();
             d.ShowDialog();
-            XmlGateway xgate = new XmlGateway(gateKey);
-            if (!Directory.Exists(gatePath))
+            XmlGateway xgate = new XmlGateway(_gateKey);
+            if (!Directory.Exists(_gatePath))
             {
-                Directory.CreateDirectory(gatePath);
+                Directory.CreateDirectory(_gatePath);
                 xgate.CreateRoot();
             }
         }
@@ -35,9 +35,9 @@ namespace XMLCRYPT
                 int time = subrandom.Next();
                 Random r = new Random(time);
                 int random = r.Next(1000, 500000);
-                crypt a = new crypt(500000);
-                string hash = a.getPwhash(textbox_password.Text);
-                XmlGateway gate = new XmlGateway(gateKey);
+                Crypt a = new Crypt(500000);
+                string hash = a.GetPwhash(textbox_password.Text);
+                XmlGateway gate = new XmlGateway(_gateKey);
                 gate.AddUsr(textbox_username.Text, hash, random, DateTime.Now);
             }
             else
@@ -59,14 +59,14 @@ namespace XMLCRYPT
 
         private void button_refreshlist_Click(object sender, EventArgs e)
         {
-            refreshList();
+            RefreshList();
         }
 
-        private void refreshList()
+        private void RefreshList()
         {
-            XmlGateway gate = new XmlGateway(gateKey);
-            string[] names = gate.getUserList();
-            listBox1.Items.AddRange(names);
+            XmlGateway gate = new XmlGateway(_gateKey);
+            object[] names = gate.GetUserList();
+            if (names != null) listBox1.Items.AddRange(items: names);
         }
 
         private void button_loaduser_Click(object sender, EventArgs e)
