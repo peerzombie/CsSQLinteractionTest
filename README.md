@@ -6,6 +6,6 @@ This is an project i use to see (and learn) how to use sql and cryptography to c
 ###TODO:
 - [x] Completing Crypt Functions
 - [ ] Adding Complete UI
-- [ ] Create "SQL" interface
+- [ ] [PAUSED: Create "SQL" interface]
 - [ ] Create Release CERT
 - [ ] Create SALT reading
