@@ -7,14 +7,15 @@ namespace XMLCRYPT
 {
     public partial class main : Form
     {
+
         private int r = 0;
         private string gateKey = "../../data/data.xml";
         private string gatePath = "../../data";
+
         public main()
         {
             InitializeComponent();
         }
-
         private void main_Load(object sender, EventArgs e)
         {
             SettingsPrompt d = new SettingsPrompt();
